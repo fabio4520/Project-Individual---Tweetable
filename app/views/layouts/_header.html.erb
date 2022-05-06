@@ -1,0 +1,32 @@
+<header>
+  <div class="container-lg">
+    <nav class="nav__tweet">
+      <%= link_to root_path, class:"text-decoration-none" do %>
+        <span class="title">Tweet</span>
+      <% end %>
+      <input type="checkbox" id="menu-mobile" >
+      <label for="menu-mobile" id="toogle-close"  >
+        <i class="ri-close-line "></i>
+      </label>
+      <label for="menu-mobile" id="toogle-open" >
+        <i class="ri-menu-line"></i>
+      </label>
+      <!-- <label for="menu-mobile" id="toogle-open">a</label> -->
+      <ul class="nav--links expandable">
+        <li>
+        <% if current_user%>
+          <p><%=current_user.username%> </p>
+        <% end %>
+        </li>
+        <li><%= link_to "Tweets", root_path, class: "link text-sm" %>
+      <% if current_user %>
+        <li><%=link_to "Profile", user_path(current_user), class:"link text-sm" %></li>
+        <li><%=button_to "Log Out", destroy_user_session_path, :method=> :delete, class:"button button--secondary button--sm" %></li>
+      <% else %>
+        <li><%=button_to "Log In", new_user_session_path, :method => :get, class:"button button--primary button--sm" %></li>
+      <% end %>  
+      </ul>
+    </nav>
+  </div>
+
+</header>

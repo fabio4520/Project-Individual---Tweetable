@@ -25,4 +25,6 @@ rails generate devise:install
 ```
 rails generate devise:views
 ```
-
+```
+rails generate devise User
+```

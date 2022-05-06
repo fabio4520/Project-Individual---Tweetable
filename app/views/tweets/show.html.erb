@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @tweet %>
+<%#= render @tweet %>
+<section class="section-md">
+  <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
+    <%= render "card", tweet: @tweet %>
+    <% @tweet.comments.each do |comment| %>
+      <%= render "card", tweet: comment %>
+      <hr>
+    <% end %>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+    <div>
+      <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
+      <%= link_to "Back to tweets", tweets_path %>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
+      <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+    </div>
+  </div>
+</section>

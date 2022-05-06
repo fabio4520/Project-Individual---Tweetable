@@ -179,3 +179,7 @@
   display: grid;
   grid-template-columns: 15% 85%;
 }
+.bb
+{
+  border-bottom: 1px solid var(--primary);
+}

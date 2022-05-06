@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="grid bb">
 
   <%# Image %>
   <div>
@@ -18,16 +18,22 @@
     <%end%>
     </div>
     <%# Body %>
-    <%= link_to tweet, class:"link text-left" do%>
-      <%= tweet.body %>
+    <% if tweet.is_a?(Tweet) %>
+      <%= link_to tweet, class:"link text-left" do%>
+        <%= tweet.body %>
+      <% end %>
+    <% else %>
+        <%= tweet.body %>
     <% end %>
     <%# Comment counter %>
-    <div class="flex">
-      <%= link_to edit_tweet_path(tweet) do%>
-        <%= image_tag("comment.png")%>
-      <% end %>
-      <span class="ml-1"><%= tweet.comments_count %></span>
-    </div>
+    <% if tweet.is_a?(Tweet) %>
+      <div class="flex">
+        <%= link_to edit_tweet_path(tweet) do%>
+          <%= image_tag("comment.png")%>
+        <% end %>
+          <span class="ml-1"><%= tweet.comments_count %></span>
+      </div>
+    <% end %> 
   </div>
 
 </div>

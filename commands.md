@@ -17,3 +17,8 @@ rails g scaffold Tweet body:text comments_count:integer user:references
 ```console
 rails g scaffold Comment user:references tweet:references body:text
 ```
+
+# Devise
+```
+rails generate devise:install
+```

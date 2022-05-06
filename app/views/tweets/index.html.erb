@@ -2,12 +2,14 @@
 
 <section class="section-md">
   <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
-    <h1>Home</h1>
-    <hr>
+    <h1 class="content-lg">Home</h1><br />
+    <% if current_user %>
+      <%= render "tweets/form", {tweet: Tweet.new} %>
+    <% end %>
     <div id="tweets">
       <% @tweets.each do |tweet| %>
         <%= render "card", tweet: tweet %>
-        <hr>
+        <br />
       <% end %>
     </div>
 

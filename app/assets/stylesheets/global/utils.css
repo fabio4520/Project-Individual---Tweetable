@@ -19,7 +19,9 @@
 .white {
   color: #fff;
 }
-
+.primary {
+  color: var(--primary)
+}
 .primary-500 {
   color: var(--primary-500);
 }
@@ -103,6 +105,7 @@
   padding: 0;
 }
 
+/* Alerts */
 .alert_not_logged_in
 {
   position: absolute;
@@ -127,6 +130,7 @@
   transform: scale(1.1);
   transition: ease 0.75s;
 }
+/* Images */
 .image_circle_lg
 {
   border-radius: 50%;

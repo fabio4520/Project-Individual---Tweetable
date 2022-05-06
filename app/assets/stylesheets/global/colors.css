@@ -33,4 +33,9 @@
 
   --shadow-input-primary: 0px 0px 4px var(--primary-300);
   --shadow-input-error: 0px 0px 4px var(--error-500);
+
+
+  --primary: #1DA1F2;
+  --primary-hover: #1B95E0;
+  --primary-disable: #9AD0F9;
 }

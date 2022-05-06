@@ -1,6 +1,6 @@
 .button {
   border: none;
-  border-radius: 0.25em;
+  border-radius: 100px;
   font-family: var(--font-primary);
   font-size: 1rem;
   line-height: 1.25em;
@@ -22,7 +22,7 @@
 }
 
 /* Button Primary */
-.button--primary {
+/* .button--primary {
   background-color: var(--primary-300);
   color: white;
 }
@@ -33,6 +33,19 @@
 
 .button--primary:focus {
   outline: 2px solid var(--primary-300);
+  outline-offset: 2px;
+} */
+.button--primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.button--primary:focus {
+  outline: 2px solid var(--primary-disable);
   outline-offset: 2px;
 }
 

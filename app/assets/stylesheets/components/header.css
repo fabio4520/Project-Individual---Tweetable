@@ -18,7 +18,7 @@ header {
   font-family: var(--font-secondary);
 }
 .title::after{
-  content: "able }";
+  content: " able }";
   margin-left: -5px;
   color: var(--gray-500);
   font-family: var(--font-secondary);

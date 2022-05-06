@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
+<section class="section-md">
+  <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
+    <h1>Home</h1>
+    <hr>
+    <div id="tweets">
+      <% @tweets.each do |tweet| %>
+        <%= render "card", tweet: tweet %>
+        <hr>
+      <% end %>
+    </div>
 
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
-  <% end %>
-</div>
+    <%= link_to "New tweet", new_tweet_path %>
+  </div>
+</section>
 
-<%= link_to "New tweet", new_tweet_path %>

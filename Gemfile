@@ -68,4 +68,4 @@ group :development do
 end
 
 # Aditional gems
-gem 'devise'
+gem "devise"

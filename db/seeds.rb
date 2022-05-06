@@ -57,7 +57,7 @@ puts("Start seeding Tweets")
 15.times do |n|
   tw = Tweet.new(
     body: Faker::Lorem.paragraph(sentence_count: 5),
-    user: User.find((User.first.id)...(User.last.id))
+    user: User.find(rand((User.first.id)...(User.last.id)))
   )
   if tw.valid?
     tw.save
@@ -73,8 +73,8 @@ puts("Finish seeding Tweets")
 puts("Start seeding Comment")
 15.times do |n|
   comment = Comment.new(
-    user: User.find((User.first.id)...(User.last.id)),
-    tweet: Tweet.find((Tweet.first.id)...(Tweet.last.id)),
+    user: User.find(rand((User.first.id)...(User.last.id))),
+    tweet: Tweet.find(rand((Tweet.first.id)...(Tweet.last.id))),
     body: Faker::Lorem.paragraph(sentence_count: 5)
   )
   if comment.valid?

@@ -1,0 +1,33 @@
+<div class="grid">
+
+  <%# Image %>
+  <div>
+    <% if tweet.user.avatar.attached? %>
+      <%= image_tag(tweet.user.avatar, class: "image_circle_sm") %>
+    <% end %>
+  </div>
+
+  <%# Info container %>
+  <div class="field flex flex-column wrap text-left mb-4">
+    <%# name username time %>
+    <div>
+    <%= link_to user_path(tweet.user), class: "link" do%>
+      <%= tweet.user.name %>
+      <span class="secondary-text">@<%= tweet.user.username %></span>
+      <span class="secondary-text"><%= time_ago_in_words(tweet.updated_at) %></span>
+    <%end%>
+    </div>
+    <%# Body %>
+    <%= link_to tweet, class:"link text-left" do%>
+      <%= tweet.body %>
+    <% end %>
+    <%# Comment counter %>
+    <div class="flex">
+      <%= link_to edit_tweet_path(tweet) do%>
+        <%= image_tag("comment.png")%>
+      <% end %>
+      <span class="ml-1"><%= tweet.comments_count %></span>
+    </div>
+  </div>
+
+</div>

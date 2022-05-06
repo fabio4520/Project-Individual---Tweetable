@@ -20,6 +20,7 @@ class TweetsController < ApplicationController
   # POST /tweets
   def create
     @tweet = Tweet.new(tweet_params)
+    # @tweet_user = Tweet.user.new
 
     if @tweet.save
       redirect_to @tweet, notice: "Tweet was successfully created."
@@ -52,6 +53,6 @@ class TweetsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def tweet_params
-    params.require(:tweet).permit(:body, :comments_count, :user_id)
+    params.require(:tweet).permit(:body)
   end
 end

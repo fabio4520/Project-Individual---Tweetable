@@ -22,3 +22,7 @@ rails g scaffold Comment user:references tweet:references body:text
 ```
 rails generate devise:install
 ```
+```
+rails generate devise:views
+```
+

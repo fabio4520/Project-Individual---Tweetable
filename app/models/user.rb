@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   # Associations
-
+  has_many :tweets, dependent: :nullify
 end

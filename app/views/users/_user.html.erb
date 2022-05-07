@@ -1,12 +1,18 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
-  </p>
+ <%# User profile %>
 
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
+<div id="<%= dom_id user %>" class="flex flex-column items-center">
+
+  <h1 class=" heading--sm mb-4">Profile</h1>
+  <% if user.avatar.attached? %>
+    <%= image_tag(user.avatar, class: "image_circle_lg mb-4") %>
+  <% else %>
+    <%= image_tag("avatar_default_user1.png", class: "image_circle_sm mb-4") %>
+  <% end %>
+  
+  <div class="flex flex-column text-center ">
+    <span class="mb-4"><%= user.name %></span>
+    <span class="mb-4">@<%= user.username %></span>
+    <span class="mb-4">Joined on <%= user.created_at.strftime('%d, %Y') %></span>
+  </div>
 
 </div>

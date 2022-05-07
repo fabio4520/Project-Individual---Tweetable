@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
     # @tweet_user = Tweet.find(params[:id]).user
 
     if @tweet.save
-      redirect_to @tweet, notice: "Tweet was successfully created."
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
   # PATCH/PUT /tweets/1
   def update
     if @tweet.update(tweet_params)
-      redirect_to @tweet, notice: "Tweet was successfully updated."
+      redirect_to tweet_path(@tweet)
     else
       render :edit, status: :unprocessable_entity
     end

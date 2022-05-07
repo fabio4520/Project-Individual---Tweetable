@@ -21,6 +21,8 @@
   <div class="grid">
     <% if current_user.avatar.attached? %>
       <%= image_tag(current_user.avatar, class: "image_circle_sm") %>
+    <% else %>
+      <%= image_tag("avatar_default_user1.png", class: "image_circle_sm") %>
     <%end%>
     <div class="input ">
       <div class="field flex mb-4">

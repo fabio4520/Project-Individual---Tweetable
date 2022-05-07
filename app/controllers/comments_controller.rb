@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      redirect_to @comment, notice: "Comment was successfully updated."
+      redirect_to tweet_path(@comment.tweet), notice: "Comment was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

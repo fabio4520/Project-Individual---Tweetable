@@ -14,7 +14,7 @@
     <% end %>
 
     <% @tweet.comments.each do |comment| %>
-      <%= render "card", tweet: comment %>
+      <%= render "comments/card", comment: comment %>
       <hr>
     <% end %>
 

@@ -43,11 +43,8 @@
       <% end %>
       <div class="flex gap-4">
         <%if current_user && current_user == tweet.user %>
-          <%= button_to "Destroy this tweet", tweet, method: :delete %>
-
-          <%#= link_to root_path, {tweet: @tweet}, method: :delete do%>
-            <%#= image_tag("destroy.png")%>
-          <%# end %>
+        <%= link_to image_tag("destroy.png"), tweet_path(tweet),
+        data: {turbo_method: :delete} %>
 
           <%= link_to edit_tweet_path(tweet) do%>
             <%= image_tag("edit.png")%>

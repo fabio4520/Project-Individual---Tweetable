@@ -32,6 +32,8 @@
       <div></div>
       <div class="flex gap-4">
         <%if current_user && current_user == comment.user %>
+          <%#= link_to image_tag("destroy.png"), comment_path(comment),
+          data: {turbo_method: :delete} %>
           <%= button_to "Destroy this comment", comment, method: :delete %>
           <%= link_to edit_comment_path(comment) do%>
             <%= image_tag("edit.png")%>

@@ -6,7 +6,10 @@
   width: fit-content;
   width: 100%;
 }
-
+.width_fit_content
+{
+  width: fit-content;
+}
 .input__icon {
   height: 1.5em;
 }

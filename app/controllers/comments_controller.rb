@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to @comment, notice: "Comment was successfully created."
+      redirect_to tweet_path(@comment.tweet), notice: "Comment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

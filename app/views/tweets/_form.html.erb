@@ -10,23 +10,28 @@
       </ul>
     </div>
   <% end %>
+  
+  <% if current_user %>
+    <div hidden>
+      <%= form.label :user_id %>
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
+  <%end%>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
+  <div class="grid">
+    <% if current_user.avatar.attached? %>
+      <%= image_tag(current_user.avatar, class: "image_circle_sm") %>
+    <%end%>
+    <div class="input ">
+      <div class="field flex mb-4">
+        <%= form.text_area :body,
+        placeholder: "Remember to thing before write...",
+          class: "input__container select__input border-none" %>
+      </div>
 
-  <div>
-    <%= form.label :comments_count, style: "display: block" %>
-    <%= form.number_field :comments_count %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+      <div class="actions flex flex-column wrap items-right">
+        <%= form.submit "Tweet", class: "button button--primary "  %>
+      </div>
+    </div>
   </div>
 <% end %>

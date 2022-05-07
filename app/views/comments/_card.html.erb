@@ -1,0 +1,44 @@
+<div class="grid bb">
+
+  <%# Image %>
+  <div>
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag(comment.user.avatar, class: "image_circle_sm") %>
+    <% end %>
+  </div>
+
+  <%# Info container %>
+  <div class="field flex input wrap text-left mb-4">
+    <%# name username time %>
+    <div>
+    <%= link_to user_path(comment.user), class: "link" do%>
+      <%= comment.user.name %>
+      <span class="secondary-text">@<%= comment.user.username %></span>
+      <span class="secondary-text"><%= time_ago_in_words(comment.updated_at) %></span>
+    <%end%>
+    </div>
+    <%# Body %>
+    <% if comment.is_a?(Comment) %>
+      <%= link_to comment, class:"link text-left" do%>
+        <%= comment.body %>
+      <% end %>
+    <% else %>
+        <%= comment.body %>
+    <% end %>
+    <%# Comment counter %>
+    <div class="flex justify-between">
+      <div></div>
+      <div class="flex gap-4">
+        <%if current_user && current_user == comment.user %>
+          <%= button_to "Destroy this comment", comment, method: :delete %>
+          <%= link_to edit_comment_path(comment) do%>
+            <%= image_tag("edit.png")%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+
+  </div>
+
+</div>

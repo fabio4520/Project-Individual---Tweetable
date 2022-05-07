@@ -3,17 +3,25 @@
 <%#= render @tweet %>
 <section class="section-md">
   <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
-    <%= render "card", tweet: @tweet %>
+  
+    <div id="tweets", class="input">
+      <%= render "card", tweet: @tweet %><br/>
+    </div>
+
+
+    <% if current_user %>
+      <div class="input bb">
+        <%= render "comments/form", {comment: Comment.new, tweet: @tweet} %><br />
+      </div>
+      <br />
+    <% end %>
+
     <% @tweet.comments.each do |comment| %>
-      <%= render "card", tweet: comment %>
+      <div id="tweets", class="input">
+        <%= render "comments/card", comment: comment %>
+      </div>
       <hr>
     <% end %>
 
-    <div>
-      <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-      <%= link_to "Back to tweets", tweets_path %>
-
-      <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-    </div>
   </div>
 </section>

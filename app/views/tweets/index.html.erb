@@ -4,7 +4,10 @@
   <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
     <h1 class="content-lg">Home</h1><br />
     <% if current_user %>
-      <%= render "tweets/form", {tweet: Tweet.new} %>
+      <div class="input bb">
+        <%= render "tweets/form", {tweet: Tweet.new} %><br />
+      </div>
+      <br />
     <% end %>
     <div id="tweets">
       <% @tweets.each do |tweet| %>

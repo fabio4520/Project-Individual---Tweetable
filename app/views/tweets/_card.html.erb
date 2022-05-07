@@ -8,7 +8,7 @@
   </div>
 
   <%# Info container %>
-  <div class="field flex flex-column wrap text-left mb-4">
+  <div class="field flex input wrap text-left mb-4">
     <%# name username time %>
     <div>
     <%= link_to user_path(tweet.user), class: "link" do%>
@@ -26,14 +26,33 @@
         <%= tweet.body %>
     <% end %>
     <%# Comment counter %>
-    <% if tweet.is_a?(Tweet) %>
-      <div class="flex">
-        <%= link_to edit_tweet_path(tweet) do%>
-          <%= image_tag("comment.png")%>
-        <% end %>
+    <div class="flex justify-between">
+      <% if tweet.is_a?(Tweet) %>
+        <div class="flex">
+          <% if current_user %>
+            <%= link_to tweet do%>
+              <%= image_tag("comment.png")%>
+            <% end %>
+          <% else %>
+              <%= image_tag("comment.png")%>
+          <% end %>
           <span class="ml-1"><%= tweet.comments_count %></span>
+        </div>
+      <% end %>
+      <div class="flex gap-4">
+        <%if current_user && current_user == tweet.user %>
+          <%= button_to "Destroy this tweet", tweet, method: :delete %>
+
+          <%#= link_to root_path, {tweet: @tweet}, method: :delete do%>
+            <%#= image_tag("destroy.png")%>
+          <%# end %>
+
+          <%= link_to edit_tweet_path(tweet) do%>
+            <%= image_tag("edit.png")%>
+          <% end %>
+        <% end %>
       </div>
-    <% end %> 
+    </div>
   </div>
 
 </div>

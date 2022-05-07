@@ -1,3 +1,7 @@
+.debug
+{
+  border: 1px solid red;
+}
 /* Background colors */
 .bg-gray-100 {
   background-color: var(--gray-100);
@@ -88,6 +92,13 @@
 }
 .items-center {
   align-items: center;
+}
+.items-right {
+  align-items: flex-end;
+}
+.justify-between
+{
+  justify-content: space-between;
 }
 
 /* Width */
@@ -182,4 +193,8 @@
 .bb
 {
   border-bottom: 1px solid var(--primary);
+}
+.border-none
+{
+  border: none;
 }

@@ -4,7 +4,10 @@
 <section class="section-md">
   <div class="container flex flex-column wrap text-center items-center mb-4 bg-white">
   
-    <%= render "card", tweet: @tweet %><br/>
+    <div id="tweets", class="input">
+      <%= render "card", tweet: @tweet %><br/>
+    </div>
+
 
     <% if current_user %>
       <div class="input bb">
@@ -14,7 +17,9 @@
     <% end %>
 
     <% @tweet.comments.each do |comment| %>
-      <%= render "comments/card", comment: comment %>
+      <div id="tweets", class="input">
+        <%= render "comments/card", comment: comment %>
+      </div>
       <hr>
     <% end %>
 

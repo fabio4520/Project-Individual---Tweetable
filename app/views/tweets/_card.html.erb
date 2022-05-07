@@ -29,14 +29,14 @@
     <div class="flex justify-between">
       <% if tweet.is_a?(Tweet) %>
         <div class="flex">
-        <% if current_user %>
-          <%= link_to tweet do%>
-            <%= image_tag("comment.png")%>
+          <% if current_user %>
+            <%= link_to tweet do%>
+              <%= image_tag("comment.png")%>
+            <% end %>
+          <% else %>
+              <%= image_tag("comment.png")%>
           <% end %>
-        <% else %>
-            <%= image_tag("comment.png")%>
-        <% end %>
-            <span class="ml-1"><%= tweet.comments_count %></span>
+          <span class="ml-1"><%= tweet.comments_count %></span>
         </div>
       <% end %>
       <div class="flex gap-4">

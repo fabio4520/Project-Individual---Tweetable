@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   def destroy
     @comment.destroy
-    redirect_to comments_url, notice: "Comment was successfully destroyed."
+    redirect_to tweet_path(@comment.tweet), notice: "Comment was successfully destroyed."
   end
 
   private

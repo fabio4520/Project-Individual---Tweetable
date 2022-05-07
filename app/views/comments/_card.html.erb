@@ -27,7 +27,7 @@
     <% end %>
     <%# Comment counter %>
     <div class="flex justify-between">
-
+      <div></div>
       <div class="flex gap-4">
         <%if current_user && current_user == comment.user %>
           <%= button_to "Destroy this comment", comment, method: :delete %>
@@ -37,6 +37,8 @@
         <% end %>
       </div>
     </div>
+    
+
   </div>
 
 </div>

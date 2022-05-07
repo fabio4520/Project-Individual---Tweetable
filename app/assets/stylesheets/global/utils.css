@@ -96,6 +96,10 @@
 .items-right {
   align-items: flex-end;
 }
+.justify-between
+{
+  justify-content: space-between;
+}
 
 /* Width */
 .fit-content {

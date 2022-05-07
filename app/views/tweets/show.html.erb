@@ -6,6 +6,7 @@
     <%= render "card", tweet: @tweet %>
     <% @tweet.comments.each do |comment| %>
       <%= render "card", tweet: comment %>
+      
       <hr>
     <% end %>
 

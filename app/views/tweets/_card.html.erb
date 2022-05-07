@@ -26,14 +26,29 @@
         <%= tweet.body %>
     <% end %>
     <%# Comment counter %>
-    <% if tweet.is_a?(Tweet) %>
-      <div class="flex">
-        <%= link_to edit_tweet_path(tweet) do%>
-          <%= image_tag("comment.png")%>
+    <div class="flex justify-between">
+      <% if tweet.is_a?(Tweet) %>
+        <div class="flex">
+          <%= link_to new_comment_path(tweet) do%>
+            <%= image_tag("comment.png")%>
+          <% end %>
+            <span class="ml-1"><%= tweet.comments_count %></span>
+        </div>
+      <% end %>
+      <div class="flex gap-4">
+        <%if current_user && current_user == tweet.user %>
+          <%= button_to "Destroy this tweet", tweet, method: :delete %>
+
+          <%#= link_to root_path, {tweet: @tweet}, method: :delete do%>
+            <%#= image_tag("destroy.png")%>
+          <%# end %>
+
+          <%= link_to edit_tweet_path(tweet) do%>
+            <%= image_tag("edit.png")%>
+          <% end %>
         <% end %>
-          <span class="ml-1"><%= tweet.comments_count %></span>
       </div>
-    <% end %> 
+    </div>
   </div>
 
 </div>
